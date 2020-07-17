@@ -23,4 +23,15 @@ RSpec.describe 'Amusement park show page' do
     expect(page).to have_content("Splash Mountain")
     expect(page).to have_content("The Haunted Mansion")
   end
+
+  it 'displays average thrill rating of rides' do
+    disney = Park.create!(name: "Disneyland", admission_price: "$120")
+    splash_mountain = disney.rides.create!(name: "Splash Mountain", thrill_rating: 7.8)
+    haunted_mansion = disney.rides.create!(name: "The Haunted Mansion", thrill_rating: 8.2)
+    autopia = disney.rides.create!(name: "Autopia", thrill_rating: 3.5)
+
+    visit "/parks/#{disney.id}"
+
+    expect(page).to have_content("Average Thrill Rating of Rides: #{disney.average_thrill_rating}/10")
+  end
 end
