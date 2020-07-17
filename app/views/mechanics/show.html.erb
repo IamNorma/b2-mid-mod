@@ -4,3 +4,11 @@
 <% @mechanic.rides.each do |ride| %>
   <%= ride.name %><br>
 <% end %>
+
+<section class="form">
+  <%= form_tag "/mechanics/#{@mechanic.id}/rides/new" do %>
+    <%= label_tag :id %>
+    <%= text_field_tag :id %><br>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</section>
