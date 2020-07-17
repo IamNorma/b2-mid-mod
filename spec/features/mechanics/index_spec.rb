@@ -9,8 +9,8 @@ RSpec.describe 'Mechanics index page' do
     visit '/mechanics'
 
     expect(page).to have_content("All Mechanics")
-    exepct(page).to have_content("Jackie Casas - 6 years of experience")
-    exepct(page).to have_content("Eliana Alvarez - 9 years of experience")
-    exepct(page).to have_content("Amanda Petro - 12 years of experience")
+    expect(page).to have_content("Jackie Casas - 6 years of experience")
+    expect(page).to have_content("Eliana Alvarez - 9 years of experience")
+    expect(page).to have_content("Amanda Petro - 12 years of experience")
   end
 end
